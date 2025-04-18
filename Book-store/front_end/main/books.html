@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="search-bar" placeholder="Search for books..." />
+        <!-- Navigation Menu -->
+        <div class="cart-btn">
+            <button id="cart-btn">Cart</button>
+            <div id="cart-container" style="display: none;">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+
+            <button id="favorites-btn">Favorites</button>
+            <div id="favorites-container" style="display: none;">
+                <!-- Favorite items will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Available Books -->
+        <h2>Available Books</h2>
+        <div id="books-container" class="books-list">
+            <!-- Book cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div id="load-more-container">
+            <button id="load-more" style="display:none;">Load More</button>
+        </div>
+
+        <!-- Pop-up Message -->
+        <div id="popup-message" class="popup-message"></div>
+    </div>
+
+    <!-- Book Detail Modal -->
+    <div id="book-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h3 id="modal-title">Book Title</h3>
+            <p id="modal-author">Author: Unknown</p>
+            <p id="modal-description">Description: No description available</p>
+            <p id="modal-price">Price: $0.00</p>
+        </div>
+    </div>
+
+    <script src="books.js"></script>
+</body>
+</html>

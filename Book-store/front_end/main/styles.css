@@ -1,0 +1,393 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 14px;
+    background: #f6fffd;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #07ad90;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.books-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-item {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 350px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out, box-shadow 0.3s ease;
+}
+
+.book-item.flipped {
+    transform: rotateY(180deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.book-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    transition: opacity 0.3s ease;
+}
+
+.book-item img.error {
+    opacity: 0;
+    background: #f0f0f0 url('https://via.placeholder.com/250x300') no-repeat center center;
+    background-size: cover;
+}
+
+.book-info, .book-back {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: #fff;
+    color: #333;
+    text-align: left;
+    backface-visibility: hidden;
+    transition: opacity 0.4s ease;
+}
+
+.book-info {
+    z-index: 2;
+}
+
+.book-back {
+    transform: rotateY(180deg);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.book-item.flipped .book-back {
+    opacity: 1;
+    visibility: visible;
+}
+
+.book-info h3 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.book-info p {
+    margin: 5px 0;
+}
+
+.book-back p {
+    font-size: 1em;
+    color: #555;
+}
+
+#load-more {
+    background-color: #07ad90;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+#load-more:hover {
+    background-color: #059a74;
+    transform: scale(1.05);
+}
+
+#load-more:focus {
+    outline: none;
+}
+
+#load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    display: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#modal-description {
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+}
+
+button {
+    background-color: #07ad90;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #059a74;
+}
+
+#popup-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #07ad90;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+    font-size: 1em;
+}
+
+#popup-message.show {
+    display: block;
+}
+
+#search-bar {
+    padding: 10px;
+    width: 300px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 5%;
+    left:80%; /* Move to top-left corner */
+    background-color: transparent;
+    border: 2px solid #07ad90;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 2; /* Ensure it stays on top */
+}
+
+.favorite-icon:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+}
+
+.favorite-icon.favorited {
+    color: #ff4081;
+    border-color: #ff4081;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    left: 80%; /* Place next to favorite icon */
+    background-color: transparent;
+    border: 2px solid #f39c12;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 35px;
+    height: 35px;
+    z-index: 2; /* Ensure it stays on top */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+}
+
+.add-to-cart-btn.added-to-cart {
+    color: white; 
+    border-color: #ffffff; 
+    transform: scale(1.1); 
+}
+
+
+.buy-btn {
+    position: absolute;
+    text-align: center;
+    top: 35%;
+    left: 80%; /* Place next to favorite icon */
+    background-color: transparent;
+    border: 2px solid #f39c12;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 35px;
+    height: 35px;
+    z-index: 2; /* Ensure it stays on top */
+}
+
+.buy-btn:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+}
+
+.buy-btn.added-to-cart {
+    color: white; 
+    border-color: #ffffff; 
+    transform: scale(1.1); 
+}
+
+.remove-from-cart-btn,remove-from-fav {
+    position: absolute;
+    text-align: center;
+    bottom:10%;
+    right:10%;
+    background-color: transparent;
+    border: 2px solid #f39c12;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 35px;
+    height: 35px;
+    z-index: 2; /* Ensure it stays on top */
+}
+
+.remove-from-cart-btn:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+}
+
+.remove-from-cart-btn.remove-from-cart {
+    color: white; 
+    border-color: #000000; 
+    transform: scale(1.1); 
+}
+
+#pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#pagination input, #pagination button {
+    margin: 5px;
+}
+
+.cart-item {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 250px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out, box-shadow 0.3s ease;
+}
+
+/* Selection Checkbox Button */
+.cart-item .select-checkbox {
+    position: absolute;
+    bottom:30%;
+    right:10%;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #07ad90;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 3; /* Ensure checkbox is above other content */
+}
+
+/* When the checkbox is checked */
+.cart-item .select-checkbox:checked {
+    background-color: #07ad90;
+    border-color: #07ad90;
+    transform: scale(1.1);
+}
+
+/* Adding checkmark inside the checkbox when selected */
+.cart-item .select-checkbox:checked:before {
+    content: '✔';
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    bottom: 30%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hover effect for the checkbox */
+.cart-item .select-checkbox:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.1);
+}
+
+/* Focused state for accessibility */
+.cart-item .select-checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(7, 173, 144, 0.3);
+}
+
+

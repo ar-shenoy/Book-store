@@ -1,0 +1,314 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Work Sans;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: rgb(236, 240, 242);
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 1300px;
+  border: 1px solid red;
+  border-style: none;
+}
+
+.background {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: calc(100% + 1000px);
+  height: 0px;
+  overflow: hidden;
+  transform: rotate(-45deg);
+  transform-origin: 80% 10%;
+  border-bottom: 60px solid rgb(222, 134, 101);
+  border-top: 100px solid rgb(246, 152, 116);
+  z-index: -1;
+}
+
+.back-panel {
+  position: relative;
+  margin: 100px auto;
+  width: 800px;
+  height: 700px;
+  background-image: linear-gradient(to right bottom, rgb(100, 109, 122), rgb(63, 70, 83));
+  box-shadow: 6px 6px 2em 0.1px rgba(100, 109, 122, .9);
+}
+
+.back-panel .input-container {
+  position: absolute;
+  width: 670px;
+  height: 450px;
+  background-color: white;
+  left: 300px;
+  top: 150px;
+  box-shadow: 6px 6px 2.5em 0.1px rgba(100, 109, 122, .5);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .buy-btn {
+  position: absolute;
+  border-radius: 0;
+  border: none;
+  padding: 25px 45px;
+  background-color: rgb(238, 144, 108);
+  top: 410px;
+  left: 430px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #B35F40;
+}
+
+.input-wrapper .buy-btn:hover {
+  box-shadow: 7px 7px 1.5em 0.1px rgba(238, 144, 108, .9);
+}
+
+.card-type {
+  font-size: 150px;
+  opacity: 0.05;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 0.7;
+}
+
+.order-total {
+  width: 300px;
+  letter-spacing: 2px;
+  margin-left: 30px;
+  margin-top: 90px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.product-title {
+  color: rgb(239, 146, 110);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-name {
+  color: rgb(254, 254, 255);
+  font-size: 23px;
+}
+
+.product-price {
+  position: absolute;
+  top: 300px;
+  width: 230px;
+  border-top: 1px solid rgba(255, 254, 255, 0.2);
+  color: rgba(149, 145, 154, 0.9);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  padding-top: 20px;
+}
+
+.price span {
+  font-size: 70px;
+  font-weight: 700;
+  color: rgb(255, 254, 255);
+  text-shadow: 0px 5px 5px rgb(63, 70, 83);
+}
+
+.save-confirm {
+  position: absolute;
+  bottom: 45px;
+  right: 130px;
+  color: rgba(149, 145, 154, 0.9);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  vertical-align: top;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 280px;
+  width: 20px;
+  height: 20px;
+  background: #5E6773;
+  line-height: 20px;
+}
+
+input[type=checkbox]:checked + label:before {
+  content: "\2713";
+  font-size: 16px;
+  color: #F59C79;
+  text-align: center;
+  font-weight: 800;
+}
+
+.payment-form {
+  display: inline-block;
+  width: 59%;
+  height: 100%;
+}
+
+.product-info {
+  padding-top: 35px;
+  padding-left: 20px;
+  text-align: center;
+}
+
+.product-info p {
+  color: rgba(149, 145, 154, 0.4);
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.product-info .reviews {
+  padding-top: 10px;
+}
+
+.product-info img {
+  padding-top: 20px;
+}
+
+.product-info-wrapper {
+  float: left;
+  width: 40%;
+}
+
+.product-reviews .fa-star {
+  color: #F4CE82;
+  padding-top: 20px;
+}
+
+.product-reviews i:nth-child(5) {
+  opacity: 0.4;
+}
+
+.small-card-type {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 0.7;
+  color: rgba(109, 119, 143, 0.9);
+  text-align: right;
+}
+
+.payment-form-wrapper label,
+.payment-form-wrapper input,
+.payment-form-wrapper select {
+  display: block;
+  color: rgba(149, 145, 154, 0.8);
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  align-items: center;
+}
+
+.payment-form-wrapper input,
+.payment-form-wrapper select {
+  border-bottom: 1px solid rgba(109, 119, 143, 0.8);
+  width: 100%;
+  padding: 15px 0;
+  margin-bottom: 40px;
+  font-family: "Josefin Sans";
+  text-transform: none;
+  font-size: 20px;
+  color: #7683A2;
+  letter-spacing: 4px;
+}
+
+input::-webkit-input-placeholder {
+  color: #7683A2;
+}
+
+*:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+input:focus {
+  opacity: 1;
+  transition: all .15s curve;
+  margin-bottom: 39px;
+  border-bottom: 3px solid rgb(246, 152, 116);
+}
+
+label.month {
+  width: 35%;
+  float: left;
+}
+
+label.year {
+  width: 30%;
+  float: left;
+  margin-top: 18px;
+  padding-left: 25px;
+}
+
+label.ccv {
+  width: 20%;
+  float: right;
+}
+
+.ccv input {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+#cart-items {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+#cart-items .book-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+#payment-form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+#payment-form div {
+  margin-bottom: 10px;
+}
+
+#fraud-status {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.fraud {
+  background-color: red;
+}
+
+.valid {
+  background-color: green;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<ul class="nav">
+    <li onclick="showLogin()">Login</li>
+    <li onclick="showSignup()">Sign up</li>
+    <li onclick="showForgotPassword()">Forgot password</li>
+    <li onclick="showSubscribe()">Subscribe</li>
+    <li onclick="showContactUs()">Contact us</li>
+</ul>
+
+<div class="wrapper">
+    <div class="rec-prism">
+        <!-- Sign up Form -->
+        <div class="face face-right">
+            <div class="content">
+                <h2>Sign up</h2>
+                <form id="signup-form">
+                    <div class="field-wrapper">
+                        <input type="text" id="signup-email" placeholder="email" required>
+                        <label>e-mail</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="text" id="signup-username" placeholder="username" required>
+                        <label>username</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="password" id="signup-password" placeholder="password" required>
+                        <label>password</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="password" id="signup-password2" placeholder="re-enter password" required>
+                        <label>re-enter password</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="submit" value="Sign up">
+                    </div>
+                    <span class="signin" onclick="showLogin()">Already a user? Sign in</span>
+                </form>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="face face-front">
+            <div class="content">
+                <h2>Sign in</h2>
+                <form id="login-form">
+                    <div class="field-wrapper">
+                        <input type="text" id="login-username" placeholder="username" required>
+                        <label>username</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="password" id="login-password" placeholder="password" required>
+                        <label>password</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="submit" value="Login">
+                    </div>
+                    <span class="psw" onclick="showForgotPassword()">Forgot Password?</span>
+                    <span class="signup" onclick="showSignup()">Not a user? Sign up</span>
+                </form>
+            </div>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div class="face face-back">
+            <div class="content">
+                <h2>Forgot your password?</h2>
+                <form id="forgot-password-form">
+                    <div class="field-wrapper">
+                        <input type="email" id="forgot-email" placeholder="email" required>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="submit" value="Send Reset Link">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Subscribe Form -->
+        <div class="face face-top">
+            <div class="content">
+                <h2>Subscribe</h2>
+                <form id="subscribe-form">
+                    <div class="field-wrapper">
+                        <input type="email" id="subscribe-email" placeholder="email" required>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="submit" value="Subscribe">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Us Form -->
+        <div class="face face-left">
+            <div class="content">
+                <h2>Contact us</h2>
+                <form id="contact-form">
+                    <div class="field-wrapper">
+                        <input type="text" id="contact-name" placeholder="name" required>
+                        <label>Name</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="email" id="contact-email" placeholder="email" required>
+                    </div>
+                    <div class="field-wrapper">
+                        <textarea id="contact-message" placeholder="your message" required></textarea>
+                        <label>Your message</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="submit" value="Send Message">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Thank You Message -->
+        <div class="face face-bottom">
+            <div class="content">
+                <div class="thank-you-msg">Thank you!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

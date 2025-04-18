@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <title>Checkout - Book Store</title>
+    <link rel="stylesheet" href="checkout.css">
+        <meta name="viewport" content="width=auto">
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-mask/1.8.5/mask.min.js"></script>
+</head>
+    
+    <body ng-app="paymentForm">
+    <div class="wrapper">
+        <div class="background"></div>
+
+        <div class="back-panel">
+            <h1 class="card-type">visa</h1>
+            <div id="cart-items" class="product-info-wrapper">
+                <div class="order-total">
+                    <div class="product-title"> everlane </div>
+                    <span class="product-name"> The Twill Snap  <br> Backpack One </span>
+                    <div class="product-price">
+                        <span> order total</span>
+                        <div class="price">
+                            <span> 87.41</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-container">
+                <form id="payment-form" class="payment-form">
+                    <h1 class="small-card-type">VISA</h1>
+                    <div class="payment-form-wrapper">
+                        <div class="product-info">
+                            <p> <i class="fa fa-search" aria-hidden="true"></i>mouseover for detailes</p>
+                            <img src="http://www.blacksides.ru/upload/resize_cache/iblock/f23/218_274_1/f233d979dac82d3f26b2a1ad686fff06.jpg">
+                            <div class="product-reviews">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                        <div class="cardholder">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" required>
+
+                        <label for="exp-date" class="month">Expiration Date</label>
+                        <input type="month" id="exp-date" required>
+
+                        <label for="cvv" class="ccv">CVV</label>
+                        <input type="text" id="cvv" required>
+
+                        
+                    </div>
+                </div>   
+                
+                </form>
+                
+            </div>
+            
+    <script src="checkout.js"></script>
+</body>
+</html>
