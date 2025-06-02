@@ -11,13 +11,13 @@ This is an ongoing project for building a full-featured online book store. The g
 ## **Web App preview**
 **Login page**
 
-![Prediction Web App](Book_store_Login.png)
+![Prediction Web App](Book%20store%20Login.png)
 **Home page**
 
-![Prediction Web App](Book_store_Checkout.png)
+![Prediction Web App](Book_store_Home.jpeg)
 **Checkout page (in progress)**
 
-![Prediction Web App](Book_store_Home.png)
+![Prediction Web App](Book%20store_Checkout.png)
 
 ## Features (Planned and In Progress)
 
