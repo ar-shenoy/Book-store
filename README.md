@@ -8,6 +8,17 @@ This is an ongoing project for building a full-featured online book store. The g
 
 🚧 This project is still under development. Core structure has been set up, and key features like browsing books, user login, cart system, and checkout flow are in progress.
 
+## **Web App preview**
+**Login page**
+
+![Prediction Web App](Book_store_Login.png)
+**Home page**
+
+![Prediction Web App](Book_store_Checkout.png)
+**Checkout page (in progress)**
+
+![Prediction Web App](Book_store_Home.png)
+
 ## Features (Planned and In Progress)
 
 - User registration and login system  
